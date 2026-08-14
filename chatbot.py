@@ -49,8 +49,10 @@ faq_vectors = vectorizer.fit_transform(questions)
 
 # Find the best matching answer
 def get_answer(user_question):
+    processed_question = preprocess(user_question)
+
     if not processed_question:
-    return "Please enter a meaningful question."
+        return "Please enter a meaningful question."
 
     user_vector = vectorizer.transform([processed_question])
 
